@@ -11,10 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/fonts.css" />
-    <link rel="stylesheet" href="./styles/colors.css" />
   </head>
   <body>
     <header class="header-section">
@@ -55,18 +52,33 @@
               >
             </li>
           </ul>
-
+          <button type="button" class="order-button header-order-button">
+            Explore Bouquets
+          </button>
           <button
             type="button"
             class="menu-button"
             aria-expanded="false"
             aria-label="Open menu"
             data-menu-button
-          ></button>
+          >
+            <img
+              src="./icons/icon-menu.svg"
+              alt=""
+              class="menu-icon menu-icon__burger"
+              width="24"
+              height="24"
+            />
+
+            <img
+              src="./icons/icon-close.svg"
+              alt=""
+              class="menu-icon menu-icon__close"
+              width="24"
+              height="24"
+            />
+          </button>
         </nav>
-        <button type="button" class="order-button header-order-button">
-          Explore Bouquets
-        </button>
       </div>
     </header>
     <main>
@@ -169,13 +181,12 @@
             </li>
           </ul>
 
-          <div class="pagination-button__wrapper">
+          <div class="bestsellers-navigation">
             <ul class="pagination-buttons-list">
               <li>
                 <button
                   class="pagination-circle pagination-circle_active"
                   aria-label="Slide 1"
-                  aria-current="true"
                 ></button>
               </li>
               <li>
@@ -195,27 +206,21 @@
               </li>
             </ul>
 
-            <div class="pagination-button__wrapper">
-              <ul class="pagination-buttons-list">
-                <li>
-                  <button type="button" class="pagination-button">
-                    <img
-                      src="./icons/left-arrow-alt.svg"
-                      alt="Previous"
-                      class="pagination-button__icon"
-                    />
-                  </button>
-                </li>
-                <li>
-                  <button type="button" class="pagination-button">
-                    <img
-                      src="./icons/right-arrow-alt.svg"
-                      alt="Previous"
-                      class="pagination-button__icon"
-                    />
-                  </button>
-                </li>
-              </ul>
+            <div class="pagination-arrows">
+              <button type="button" class="pagination-button">
+                <img
+                  src="./icons/left-arrow-alt.svg"
+                  alt="Previous"
+                  class="pagination-button__icon"
+                />
+              </button>
+              <button type="button" class="pagination-button">
+                <img
+                  src="./icons/right-arrow-alt.svg"
+                  alt="Next"
+                  class="pagination-button__icon"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -362,21 +367,21 @@
             What our clients says
           </h2>
           <ul class="feedback-list">
-            <li class="feedback-item">
+            <li class="feedback-item is-active">
               <p class="feedback-text">
                 "Flora made my anniversary unforgettable with their beautiful
                 arrangement!"
               </p>
               <p class="feedback-person-name">Emma T.</p>
             </li>
-            <li class="feedback-item">
+            <li class="feedback-item" is-active>
               <p class="feedback-text">
                 Absolutely stunning bouquet! It looked even better than the
                 photo and arrived right on time.
               </p>
               <p class="feedback-person-name">Daniel R.</p>
             </li>
-            <li class="feedback-item">
+            <li class="feedback-item is-active">
               <p class="text feedback-text">
                 The service was exceptional, and the flowers were fresh!
               </p>
@@ -385,7 +390,7 @@
           </ul>
 
           <div class="feedback-navigation-block">
-            <ul class="pagination-button__wrapper">
+            <ul class="pagination-button__arrows">
               <li>
                 <button class="pagination-button" type="button">
                   <img

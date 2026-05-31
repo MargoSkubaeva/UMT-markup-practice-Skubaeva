@@ -148,16 +148,40 @@ body {
   height: 24px;
 }
 
-.pagination-button__wrapper {
+.bestsellers-navigation {
   display: flex;
-  gap: 16px;
-  margin-left: auto;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 32px;
 }
 
 .pagination-buttons-list {
   display: flex;
   align-items: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination-arrows {
+  display: flex;
   gap: 16px;
+}
+
+.pagination-button {
+  width: 48px;
+  height: 48px;
+  background-color: var(--pagination-button-bg);
+  border-radius: 100px;
+  border: 1px solid var(--pagination-button-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms ease-in-out;
+  outline: none;
+  padding: 0;
 }
 
 .pagination {
@@ -286,16 +310,16 @@ body {
 /* Hero */
 
 .hero-section {
-  background-image: url('../images/flowers.jpg');
+  width: 100%;
   background-color: #d9d9d9;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url('../images/flowers.jpg');
   background-size: cover;
-  margin: 0 auto;
+  background-position: center;
 }
 
-.hero-container {
-  padding: 48px 0;
+.hero-section .container {
+  display: flex;
+  align-items: center;
 }
 
 .hero-title {
@@ -432,6 +456,7 @@ body {
   object-fit: cover;
   border-radius: 16px;
   margin-bottom: 16px;
+  display: block;
 }
 
 .bouqets-item-show-more-button {
@@ -489,11 +514,18 @@ body {
 .feedback-navigation-block {
   display: flex;
   justify-content: flex-end;
-  gap: 16px;
   margin-top: 32px;
-  width: 335px;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.pagination-button__arrows {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  align-items: center;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Contacts */
@@ -502,8 +534,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-bottom: 32px;
-  align-items: flex-start;
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
 }
 
 .contacts-text {
@@ -558,11 +591,12 @@ body {
 }
 
 .florist-image {
-  width: 100%;
+  width: 335px;
   height: 312px;
-  display: block;
   object-fit: cover;
   border-radius: 16px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Footer */
@@ -623,6 +657,51 @@ footer {
   padding-bottom: 48px;
 }
 
+/* Mobile Menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translate(100%);
+  margin-top: 72px;
+  height: calc(100vh - 72px);
+  width: 100vw;
+  z-index: 2;
+  padding: 16px 20px;
+  overflow-y: auto;
+  background-color: var(--primary-bg);
+
+  transition: transform 250ms ease-in-out;
+}
+
+.mobile-menu.is-open {
+  transform: translate(0);
+}
+
+.menu-navigation {
+  margin-bottom: 24px;
+}
+
+.menu-navigation-list {
+  font-weight: 400;
+  font-size: var(--regular);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.menu-navigation-link {
+  padding: 8px 0;
+}
+
+.menu-action-button {
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+}
+
 /* Tablet */
 
 @media screen and (min-width: 768px) {
@@ -664,18 +743,14 @@ footer {
   #about-us .container {
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-between;
-    gap: 48px;
+    gap: 32px;
   }
 
   .about-description {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 520px;
-    max-width: 520px;
+    width: auto;
+    max-width: 340px;
+    flex-shrink: 1;
     margin: 0;
-    flex-shrink: 0;
   }
 
   .about-section-title {
@@ -745,9 +820,7 @@ footer {
     min-height: unset;
   }
 
-  .bestsellers-footer {
-    width: 100%;
-    grid-column: 1 / -1;
+  .bestsellers-navigation {
     margin-top: 48px;
   }
 
@@ -769,7 +842,12 @@ footer {
   }
 
   .bouqets-item-image {
-    max-width: 100%;
+    max-width: 335px;
+    width: 100%;
+    height: 296px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
   }
 
   .bouqets-item-show-more-button {
@@ -793,7 +871,7 @@ footer {
   }
 
   .feedback-list .feedback-item:nth-child(3) {
-    display: flex;
+    display: none;
   }
 
   .feedback-item,
@@ -812,12 +890,14 @@ footer {
   /* Contacts */
 
   .contacts-block {
+    max-width: 704px;
     flex-direction: row;
-    gap: 48px;
+    justify-content: space-between;
   }
 
   .contacts-text {
     flex: 1;
+    max-width: 340px;
   }
 
   .contacts-info {
@@ -829,7 +909,8 @@ footer {
   }
 
   .florist-image {
-    height: 420px;
+    width: 704px;
+    height: 396px;
   }
 
   /* Footer */
@@ -858,50 +939,6 @@ footer {
     justify-content: center;
     gap: 32px;
   }
-}
-/* Mobile Menu */
-.mobile-menu {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  right: 0;
-  transform: translate(100%);
-  margin-top: 72px;
-  height: calc(100vh - 72px);
-  width: 100vw;
-  z-index: 2;
-  padding: 16px 20px;
-  overflow-y: auto;
-  background-color: var(--primary-bg);
-
-  transition: transform 250ms ease-in-out;
-}
-
-.mobile-menu.is-open {
-  transform: translate(0);
-}
-
-.menu-navigation {
-  margin-bottom: 24px;
-}
-
-.menu-navigation-list {
-  font-weight: 400;
-  font-size: var(--regular);
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.menu-navigation-link {
-  padding: 8px 0;
-}
-
-.menu-action-button {
-  width: 100%;
-  max-width: 335px;
-  margin: 0 auto;
 }
 
 /* Desktop */
@@ -932,10 +969,9 @@ footer {
 
   .navigation-list {
     display: flex;
-    font-size: 16px;
-    align-items: center;
     gap: 32px;
-    margin-left: 32px;
+    margin: 0 auto;
+    padding: 0;
   }
 
   .navigation {
@@ -959,13 +995,16 @@ footer {
 
   .hero-section {
     min-height: 669px;
-    max-width: 1440px;
+    width: 100%;
+    background-size: cover;
   }
 
   .hero-container {
     padding-top: 191px;
     padding-bottom: 191px;
-    width: 667px;
+    width: 100%;
+    max-width: 667px;
+    margin: 0;
   }
 
   .hero-title {
@@ -1020,8 +1059,9 @@ footer {
     height: 320px;
   }
 
-  .bestsellers-footer {
+  .bestsellers-navigation {
     margin-top: 48px;
+    display: flex;
   }
 
   /* Bouquets */
@@ -1078,13 +1118,17 @@ footer {
   /* Contacts */
 
   .contacts-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1280px;
+    margin: 0 auto;
     gap: 80px;
   }
 
   .contacts-text {
-    flex: 0 0 700px;
-    width: 700px;
-    max-width: 700px;
+    flex: 0 0 500px;
   }
 
   .contacts-info {
@@ -1096,9 +1140,8 @@ footer {
   }
 
   .florist-image {
-    width: 100%;
+    width: 1280px;
     height: 720px;
-    border-radius: 16px;
   }
 
   /* Footer */
