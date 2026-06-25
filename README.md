@@ -35,6 +35,20 @@ Responsive flower shop landing page with interactive sliders, modal windows and 
 - AOS
 - REST API
 
+## Local запуск
+
+Встановити залежності:
+
+npm install
+
+Запустити mock API:
+
+npx json-server db.json --port 3001
+
+Запустити застосунок:
+
+npm run dev
+
 ## Author
 
 Margarita Skubaeva
