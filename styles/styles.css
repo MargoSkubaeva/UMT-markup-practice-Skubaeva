@@ -199,8 +199,8 @@
 }
 
 .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   background: #d9d9d9;
   opacity: 1;
 }
@@ -634,6 +634,7 @@ footer {
 
 .order-modal-form .order-button {
   width: 295px;
+  margin: 0 auto;
 }
 
 .order-modal-cta.is-loading {
@@ -954,6 +955,8 @@ footer {
 
   .order-modal-form .order-button {
     width: 340px;
+    height: 44px;
+    margin: 0 auto;
   }
 }
 
@@ -1242,5 +1245,7 @@ footer {
 
   .order-modal-form .order-button {
     width: 159px;
+    height: 44px;
+    margin: 0 auto;
   }
 }

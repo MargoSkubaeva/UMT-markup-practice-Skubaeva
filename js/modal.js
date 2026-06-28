@@ -1,3 +1,5 @@
+import { showSuccessNotification } from './notifications.js';
+
 const detailModal = document.getElementById('detail-modal');
 const orderModal = document.getElementById('order-modal');
 
@@ -5,6 +7,8 @@ const closeDetailBtn = document.getElementById('close-modal-button');
 const closeOrderBtn = document.getElementById('close-order-modal-button');
 
 const detailContent = document.getElementById('detail-modal-content');
+
+const orderForm = document.getElementById('order-modal-form');
 
 function lockScroll() {
   document.body.classList.add('modal-open');
@@ -126,4 +130,15 @@ document.addEventListener('keydown', (event) => {
     closeDetailModal();
     closeOrderModal();
   }
+});
+
+orderForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  closeOrderModal();
+  orderForm.reset();
+
+  showSuccessNotification(
+    'Thank you! Your order has been successfully submitted.'
+  );
 });
